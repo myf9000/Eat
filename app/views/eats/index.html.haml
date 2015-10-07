@@ -1,0 +1,9 @@
+%h1 List all Eats
+= link_to "New Eat", new_eat_path
+- @eats.each do |f|
+	%li
+		= f.title
+		= f.description
+		= link_to "Show", f
+		= link_to "Edit", edit_eat_path(f)
+		= link_to "Delete", f, method: :delete, data: {confirm: "Are you sure?"}
