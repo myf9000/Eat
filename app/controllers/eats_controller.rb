@@ -6,7 +6,7 @@ class EatsController < ApplicationController
   end
 
   def create
-    @eat = Eat.new(eat_params)
+    @eat = current_user.eats.bulid(eat_params)
     if @eat.save
       redirect_to @eat, notice: "Eat is ready for Mmm..."
     else 
@@ -15,7 +15,7 @@ class EatsController < ApplicationController
   end
 
   def new
-    @eat = Eat.new
+    @eat = current_user.eats.bulid
   end
 
   def show

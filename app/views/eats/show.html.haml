@@ -1,4 +1,9 @@
 %h2=@eat.title
 %p=@eat.description
+%p
+Eat was sended by 
+=@eat.user.email
 
 = link_to "Back", root_path
+= link_to "Edit", edit_eat_path(@eat)
+= link_to "Delete", @eat, method: :delete, data: {confirm: "Are you sure?"}
